@@ -27,5 +27,5 @@ def read_temp():
         return temp_c
 	
 while True:
-	print(read_temp() + " deg C, time t=" + time.perf_counter())	
+	print(str(read_temp()) + " deg C, time t=" + str(time.perf_counter()))	
 	time.sleep(0.5)
