@@ -20,6 +20,9 @@ dac.channel_off(15) # Turn off all channels for test
 
 st_time = time.perf_counter()
 
+print("ADC Channels Active: " + str(ADC_CHANNELS))
+print(str(len(temp_sensors)) + " Temp sensors active")
+
 while True:
     adc_readings = [adc.read_channel_raw(i) for i in ADC_CHANNELS]
     temp_readings = [ts.read_temp() for ts in temp_sensors]
