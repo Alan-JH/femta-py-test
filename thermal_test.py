@@ -29,7 +29,7 @@ while True:
     t = time.perf_counter() - st_time 
 
     f = open(filename, "w")
-    f.write(",".join([t] + adc_readings + temp_readings) + "\n")
+    f.write(",".join([str(t)] + [str(i) for i in adc_readings] + [str(i) for i in temp_readings]) + "\n")
     f.close()
 
     print("Time: " + str(t) +  " ADC Raw: " + str(adc_readings))
