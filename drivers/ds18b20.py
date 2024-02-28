@@ -37,8 +37,11 @@ class DS18B20():
         #while lines[0].strip()[-3:] != 'YES': # Original implementation retries indefinitely until valid reading
         #    time.sleep(0.2)
         #    lines = self.read_temp_raw(self)
-        if lines[0].strip()[-3:] != 'YES':
-            return -999 # This implementation will only try once, in the interest of having a consistent readout time
+        try: 
+            if lines[0].strip()[-3:] != 'YES':
+                return -999 # This implementation will only try once, in the interest of having a consistent readout time
+        except IndexError:
+            return -999
         equals_pos = lines[1].find('t=')
         if equals_pos != -1:
             temp_string = lines[1][equals_pos+2:]
