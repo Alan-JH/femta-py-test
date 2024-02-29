@@ -28,7 +28,7 @@ while True:
     temp_readings = [ts.read_temp() for ts in temp_sensors]
     t = time.perf_counter() - st_time 
 
-    f = open(filename, "w")
+    f = open(filename, "a")
     f.write(",".join([str(t)] + [str(i) for i in adc_readings] + [str(i) for i in temp_readings]) + "\n")
     f.close()
 
