@@ -1,4 +1,4 @@
-function [temp_c] = temp_conversion(adc_raw)
+function [temp_c] = temp_conversion(adc_raw, num_therm)
 % Converts 12 bit ADC reading to temperature
 
 % ADC Specs
@@ -18,6 +18,6 @@ Beta = 3570;
 % Calculations
 v_sum = adc_raw * THERM_VDIV_RATIO * ADC_IN_MAX / ADC_RES;
 r_sum = v_sum / I_S;
-r_avg = r_sum / 8;
+r_avg = r_sum / num_therm;
 temp_k = 1 ./ (1./T0 - log(R0./r_avg)./Beta);
 temp_c = temp_k - 273.15;
