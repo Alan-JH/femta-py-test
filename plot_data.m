@@ -9,8 +9,8 @@ adc_raw = raw_data(:, 2:17);
 temp_c = raw_data(:, 18:end);
 
 time_min = time_s / 60;
-femta_temp = temp_conversion(adc_raw(:, 3), 8);
-tank_temp = temp_conversion(adc_raw(:, 12), 4);
+femta_temp = temp_conversion(adc_raw(:, 3), 8, 3570);
+tank_temp = temp_conversion(adc_raw(:, 12), 4, 3934);
 
 femta_heater_power = heater_power(adc_raw(:, 9));
 tank_heater_power = heater_power(adc_raw(:, 11));

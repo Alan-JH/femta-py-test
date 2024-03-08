@@ -1,4 +1,4 @@
-function [temp_c] = temp_conversion(adc_raw, num_therm)
+function [temp_c] = temp_conversion(adc_raw, num_therm, Beta)
 % Converts 12 bit ADC reading to temperature
 
 % ADC Specs
@@ -13,7 +13,6 @@ I_S = 227e-6 * (298.15) / RSET; % Supply current
 % Thermistor specs
 T0 = 298.15;
 R0 = 10000;
-Beta = 3570;
 
 % Calculations
 v_sum = adc_raw * THERM_VDIV_RATIO * ADC_IN_MAX / ADC_RES;
