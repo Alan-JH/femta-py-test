@@ -36,6 +36,8 @@ plot(time_min(t_femta1~=85), t_femta1(t_femta1~=85), '-.y');
 plot(time_min(t_control_pcb~=85), t_control_pcb(t_control_pcb~=85), '-.r');
 plot(time_min(t_plate~=85), t_plate(t_plate~=85), '-.k');
 plot(time_min(t_femta2~=85), t_femta2(t_femta2~=85), '-.b');
-legend({'FEMTA', 'Tank', 'Tank 1', 'Valve Channels', 'Tank 2', 'Femta Interface 1', 'Control PCB', 'Plate', 'Femta Interface 2'}, 'Location', 'southwest');
+plot(time_min, 20*(femta_heater_power > 0.5), '-b');
+plot(time_min, 20*(tank_heater_power > 0.5), '-r');
+legend({'FEMTA', 'Tank', 'Tank 1', 'Valve Channels', 'Tank 2', 'Femta Interface 1', 'Control PCB', 'Plate', 'Femta Interface 2', 'FEMTA Heater', 'Tank Heater'}, 'Location', 'southwest');
 grid on
 hold off
