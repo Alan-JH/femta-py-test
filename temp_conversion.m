@@ -6,7 +6,7 @@ ADC_VREF = 2.5;
 ADC_RES = 4096;
 ADC_IN_MAX = 2*ADC_VREF;
 
-THERM_VDIV_RATIO = 5.1; % Voltage divider ratio from thermistor to input
+THERM_VDIV_RATIO = 5.02; % Voltage divider ratio from thermistor to input
 RSET = 2000;
 I_S = 227e-6 * (298.15) / RSET; % Supply current
 
