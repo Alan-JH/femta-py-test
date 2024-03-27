@@ -41,7 +41,7 @@ while True:
         pulse = 0
         last_pulse = time.perf_counter()
         print("Pulsing Thruster 1 off")
-    elif ((~pulse) and time.perf_counter() - last_pulse > T_pulse_on):
+    elif ((not pulse) and time.perf_counter() - last_pulse > T_pulse_on):
         dac.write_channel_raw(4, static) # pulse on
         pulse = 1
         last_pulse = time.perf_counter()
@@ -52,6 +52,7 @@ while True:
         step += step_increment
         if (step > max_step):
             step = 0
+        last_step = time.perf_counter()
         print("Step set voltage: " + str(step))
     dac.write_channel_raw(6, step)
 
