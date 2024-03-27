@@ -26,7 +26,7 @@ print(str(len(temp_sensors)) + " Temp sensors active")
 step = 0
 step_increment = (int)(0.25 * 4096 / 5) # 0.25W step increment
 max_step = (int)(3.25 * 4096 / 5) # max 3.25V = 1W
-step_time = 30
+step_time = 10
 last_step = time.perf_counter()
 
 static = (int)(1 * 4096 / 5) # 1V = 255mW
@@ -61,7 +61,7 @@ while True:
     t = time.perf_counter() - st_time 
 
     f = open(filename, "a")
-    f.write(",".join([str(t)] + [str(i) for i in adc_readings] + [str(i) for i in temp_readings]) + "\n")
+    f.write(",".join([str(t)] + [str(i) for i in adc_readings] + [str(i) for i in temp_readings] + [str(static * pulse), str(static), str(step)]) + "\n")
     f.close()
 
     print("Time: " + str(t) +  " ADC Raw: " + str(adc_readings))
